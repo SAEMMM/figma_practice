@@ -28,6 +28,26 @@
         height: 34px;
         border: 1px solid #DEDEDE;
         border-radius: 5px;
+        outline: none;
+        padding-left: 12px;
+      }
+
+      & input[type="date"] {
+        box-sizing: border-box;
+        width: 160px;
+        height: 34px;
+        border: 1px solid #DEDEDE;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      & input:focus {
+        border: 1px solid #024EEE;
+        outline: 3px solid #DBE1FD;
+      }
+      & input[type="text"]:focus {
+        color: transparent;
+        text-shadow: 0 0 0 #333333;
       }
     }
   }
