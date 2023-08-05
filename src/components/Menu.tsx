@@ -8,7 +8,7 @@ function Menu() {
     <>
       <main id="menu">
         {/* 첫번째 대메뉴 */}
-        <article>
+        <section id="menuGroup">
           <div className="largeMenu">
             <p>대메뉴</p>
             <img src={unfoldActive} alt="unfoldActive" />
@@ -19,12 +19,12 @@ function Menu() {
           <div className="smallMenu">
             <p>소메뉴</p>
           </div>
-        </article>
+        </section>
 
-        <section />
-        
+        <section id="paragraphDivision" />
+
         {/* 두번째 대메뉴 */}
-        <article>
+        <section id="menuGroup">
           <div className="largeMenu">
             <p>대메뉴</p>
             <img src={unfoldActive} alt="unfoldActive" />
@@ -35,7 +35,7 @@ function Menu() {
           <div className="smallMenu">
             <p>소메뉴</p>
           </div>
-        </article>
+        </section>
       </main>
     </>
   );

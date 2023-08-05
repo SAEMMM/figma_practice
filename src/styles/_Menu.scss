@@ -5,9 +5,9 @@
   padding-top: 20px;
   background-color: #f6f7f8;
   float: left;
-  border-right: 1px solid #E0E4E8;
+  border-right: 1px solid #e0e4e8;
 
-  & article {
+  & #menuGroup {
     & div {
       width: 100%;
       height: 36px;
@@ -15,10 +15,10 @@
     }
 
     & .largeMenu {
-      font-weight: 400;
-      width: 203px;
+      font-weight: 500;
       box-sizing: border-box;
       padding-left: 28px;
+      padding-right: 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -37,7 +37,7 @@
     }
   }
 
-  & section {
+  & #paragraphDivision {
     width: 100%;
     height: 12px;
   }

@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import "../styles/_Header.scss";
 
 function Header() {
   return (
-    <div>Header</div>
-  )
+    <>
+      <main id="header">
+        <h1>타이틀</h1>
+      </main>
+    </>
+  );
 }
 
-export default Header
+export default Header;
