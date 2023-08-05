@@ -1,0 +1,44 @@
+#menu {
+  width: 256px;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 20px;
+  background-color: #f6f7f8;
+  float: left;
+  border-right: 1px solid #E0E4E8;
+
+  & article {
+    & div {
+      width: 100%;
+      height: 36px;
+      line-height: 36px;
+    }
+
+    & .largeMenu {
+      font-weight: 400;
+      width: 203px;
+      box-sizing: border-box;
+      padding-left: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    & .smallMenu {
+      font-weight: 300;
+      box-sizing: border-box;
+      padding-left: 40px;
+      color: #777777;
+    }
+  }
+
+  & section {
+    width: 100%;
+    height: 12px;
+  }
+}
