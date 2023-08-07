@@ -53,17 +53,20 @@ function Content() {
 
           <div className="infoBox">
             <p>정보6</p>
-            <div className="radioNcheckBox">
-              <input type="checkbox" />
-              <label>선택1</label>
+            <div className="checkBox">
+              <input type="checkbox" id="check1" />
+              <div className="checkDefault" />
+              <label htmlFor="check1">선택1</label>
             </div>
-            <div className="radioNcheckBox">
-              <input type="checkbox" />
-              <label>선택2</label>
+            <div className="checkBox">
+              <input type="checkbox" id="check2" />
+              <div className="checkDefault" />
+              <label htmlFor="check2">선택2</label>
             </div>
-            <div className="radioNcheckBox">
-              <input type="checkbox" />
-              <label>선택3</label>
+            <div className="checkBox">
+              <input type="checkbox" id="check3" />
+              <div className="checkDefault" />
+              <label htmlFor="check3">선택3</label>
             </div>
           </div>
         </article>
