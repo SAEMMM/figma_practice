@@ -64,6 +64,7 @@
             // 캘린더 년, 월 select
             & div {
               & select {
+                color: #333333;
                 height: 34px;
                 border-radius: 5px;
                 border: 1px solid #dedede;
@@ -110,6 +111,7 @@
             width: 32px;
             height: 32px;
             margin: 2px 0px 0px 0px;
+            color: #333333;
           }
           // hover시 css
           & .react-datepicker__day:hover {
@@ -122,6 +124,7 @@
           & .react-datepicker__day--selected {
             border-radius: 999px;
             background-color: #024eee;
+            color: #fff;
           }
           & .react-datepicker__day--outside-month {
             color: #bebebe;

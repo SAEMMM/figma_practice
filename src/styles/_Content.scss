@@ -23,6 +23,9 @@
         font-weight: 500;
       }
 
+      & input {
+        color: #333333;
+      }
       & input[type="text"] {
         box-sizing: border-box;
         width: 160px;
@@ -65,7 +68,7 @@
         }
 
         & input[type="checkbox"] + .checkDefault {
-          display:inline-block;
+          display: inline-block;
           width: 16px;
           height: 16px;
           background: url("../static/check_default.png") no-repeat 100%/16px;
@@ -98,33 +101,48 @@
         font-weight: 500;
       }
 
-      // 라디오 버튼 + 텍스트
-      & .radioBox {
-        margin-right: 32px;
-        display: flex;
-        align-items: center;
+      // 라디오 버튼 + 선택3 눌렀을 시, 메세지
+      & #radioNmsg {
+        // 라디오 버튼 + 텍스트
+        & #radioSelectGroup {
+          display: flex;
+          & .radioBox {
+            margin-right: 32px;
+            display: flex;
+            align-items: center;
 
-        & input[type="radio"] {
-          display: none;
+            & input[type="radio"] {
+              display: none;
+            }
+
+            & input[type="radio"] + .radioDefault {
+              display: inline-block;
+              width: 16px;
+              height: 16px;
+              background: url("../static/radio_default.png") no-repeat 100%/16px;
+            }
+
+            & input[type="radio"]:hover + .radioDefault {
+              background: url("../static/radio_hover.png") no-repeat 100%/16px;
+            }
+
+            & input[type="radio"]:checked + .radioDefault {
+              background: url("../static/radio_checked.png") no-repeat 100%/16px;
+            }
+
+            & label {
+              margin-left: 8px;
+            }
+          }
         }
 
-        & input[type="radio"] + .radioDefault {
-          display:inline-block;
-          width: 16px;
-          height: 16px;
-          background: url("../static/radio_default.png") no-repeat 100%/16px;
-        }
-
-        & input[type="radio"]:hover + .radioDefault {
-          background: url("../static/radio_hover.png") no-repeat 100%/16px;
-        }
-
-        & input[type="radio"]:checked + .radioDefault {
-          background: url("../static/radio_checked.png") no-repeat 100%/16px;
-        }
-
-        & label {
-          margin-left: 8px;
+        // 선택3 눌렀을 시, 메세지
+        & #radio3SelectMsg {
+          margin-top: 12px;
+          & span {
+            font-size: 12px;
+            color: #F03738;
+          }
         }
       }
     }
@@ -142,12 +160,12 @@
     height: 40px;
     border-radius: 5px;
     border: none;
-    background-color: #024EEE;
+    background-color: #024eee;
     color: #fff;
     cursor: pointer;
   }
 
   & button:hover {
-    background-color: #003AD6;
+    background-color: #003ad6;
   }
 }
