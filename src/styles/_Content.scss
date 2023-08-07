@@ -130,3 +130,24 @@
     }
   }
 }
+
+#submitBox {
+  width: 943px;
+  margin: 16px 40px 0px 297px;
+  display: flex;
+  justify-content: flex-end;
+
+  & button {
+    width: 74px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #024EEE;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  & button:hover {
+    background-color: #003AD6;
+  }
+}

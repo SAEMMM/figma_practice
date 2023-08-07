@@ -71,6 +71,10 @@ function Content() {
           </div>
         </article>
       </main>
+
+      <footer id="submitBox">
+        <button>저장</button>
+      </footer>
     </>
   );
 }
