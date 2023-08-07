@@ -32,19 +32,22 @@ function Content() {
             <Datepicker />
           </div>
 
-          <div className="infoBox">
+          <div className="infoBoxRadio">
             <p>정보5</p>
-            <div className="radioNcheckBox">
-              <input type="radio" />
-              <label>선택1</label>
+            <div className="radioBox">
+              <input type="radio" id="radio1" />
+              <div className="radioDefault" />
+              <label htmlFor="radio1">선택1</label>
             </div>
-            <div className="radioNcheckBox">
-              <input type="radio" />
-              <label>선택2</label>
+            <div className="radioBox">
+              <input type="radio" id="radio2" />
+              <div className="radioDefault" />
+              <label htmlFor="radio2">선택2</label>
             </div>
-            <div className="radioNcheckBox">
-              <input type="radio" />
-              <label>선택3</label>
+            <div className="radioBox">
+              <input type="radio" id="radio3" />
+              <div className="radioDefault" />
+              <label htmlFor="radio3">선택3</label>
             </div>
           </div>
 
