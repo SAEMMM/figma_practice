@@ -1,11 +1,12 @@
-import React from 'react';
-import Main from './pages/Main';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Main from "./pages/Main";
 
 function App() {
   return (
-    <>
-      <Main />
-    </>
+    <Routes>
+      <Route path="/:id" element={<Main />} />
+    </Routes>
   );
 }
 

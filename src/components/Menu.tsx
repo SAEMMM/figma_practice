@@ -6,11 +6,9 @@ function Menu() {
   return (
     <>
       <main id="menu">
-        <MenuGroup />
-
+        <MenuGroup groupIndex={1} />
         <section id="paragraphDivision" />
-
-        <MenuGroup />
+        <MenuGroup groupIndex={2} />
       </main>
     </>
   );

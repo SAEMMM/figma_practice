@@ -29,7 +29,7 @@
         height: 18px;
       }
     }
-    & .foldLargeMenu {
+    & .activeMenu {
       background-color: #E0E4E8;
     }
 
@@ -42,6 +42,7 @@
     & .smallMenu:hover, .largeMenu:hover {
       background-color: #F0F2F3;
     }
+
   }
 
   // 두 개의 대메뉴 간격
