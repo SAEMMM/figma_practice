@@ -2,6 +2,20 @@ import React, { useState } from "react";
 import "../styles/_Content.scss";
 import Datepicker from "./Datepicker";
 
+import { useQuery } from "@tanstack/react-query";
+import { getData } from "../api/api";
+
+// getData의 타입
+interface DataInterface {
+  info1: string;
+  info2: string;
+  info3: string;
+  info4: string;
+  date: string;
+  info5: string;
+  info6: string[];
+}
+
 function Content() {
   // radio 버튼 상태 관리
   const [radioSelected, setRadioSelected] = useState("");
@@ -9,13 +23,18 @@ function Content() {
   const radioSelectedHandler = (value: string) => {
     setRadioSelected(value);
   };
+
+  // data 불러오기
+  const { data } = useQuery<DataInterface>(["getData"], getData);
+  console.log("데이터조회:", data);
+
   return (
     <>
       <main id="content">
         <article>
           <div className="infoBox">
             <p id="infoName">정보1</p>
-            <span>정보 내용</span>
+            <span>{data?.info1}</span>
           </div>
 
           <div className="infoBox">
@@ -25,7 +44,7 @@ function Content() {
 
           <div className="infoBox">
             <p>정보3</p>
-            <span>정보 내용</span>
+            <span>{data?.info3}</span>
           </div>
 
           <div className="infoBox">
