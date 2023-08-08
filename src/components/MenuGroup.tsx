@@ -27,8 +27,6 @@ function MenuGroup({ groupIndex }: MenuGroupProps) {
     setFoldLargeMenu(!unfoldLargeMenu);
   };
 
-  console.log("열림여부:", unfoldLargeMenu);
-
   // 대메뉴 index에 따른 소메뉴 경로
   const smallMenuPath = (menuIndex: number) => {
     const baseIndex = (groupIndex - 1) * 2;

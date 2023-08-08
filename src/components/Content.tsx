@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/_Content.scss";
 import Datepicker from "./Datepicker";
 
@@ -17,6 +17,9 @@ interface DataInterface {
 }
 
 function Content() {
+  // data 불러오기
+  const { data } = useQuery<DataInterface>(["getData"], getData);
+
   // radio 버튼 상태 관리
   const [radioSelected, setRadioSelected] = useState("");
 
@@ -24,9 +27,66 @@ function Content() {
     setRadioSelected(value);
   };
 
-  // data 불러오기
-  const { data } = useQuery<DataInterface>(["getData"], getData);
-  console.log("데이터조회:", data);
+  // useEffect(() => {
+  //   if (data?.info5 === "선택1") {
+  //     setRadioSelected("radio1");
+  //   } else if (data?.info5 === "선택2") {
+  //     setRadioSelected("radio2");
+  //   } else if (data?.info5 === "선택3") {
+  //     setRadioSelected("radio3");
+  //   }
+  // }, [data?.info5]);
+
+  // checkbox 버튼 상태 관리
+  const [checkboxStates, setCheckboxStates] = useState<boolean[]>([]);
+
+  // useEffect(() => {
+  //   if (data?.info6) {
+  //     const newCheckboxStates = [false, false, false];
+  //     data.info6.forEach((item) => {
+  //       if (item === "선택1") newCheckboxStates[0] = true;
+  //       else if (item === "선택2") newCheckboxStates[1] = true;
+  //       else if (item === "선택3") newCheckboxStates[2] = true;
+  //     });
+  //     setCheckboxStates(newCheckboxStates);
+  //   }
+  // }, [data?.info6]);
+
+  const checkboxHandler = (index: number) => {
+    const newCheckboxStates = [...checkboxStates];
+    newCheckboxStates[index] = !newCheckboxStates[index];
+    setCheckboxStates(newCheckboxStates);
+  };
+
+  // input text 상태 관리
+  const [info2Value, setInfo2Value] = useState(data?.info2 || "");
+  const [info4Value, setInfo4Value] = useState(data?.info4 || "");
+
+  useEffect(() => {
+    // radioSelected 업데이트
+    if (data?.info5 === "선택1") {
+      setRadioSelected("radio1");
+    } else if (data?.info5 === "선택2") {
+      setRadioSelected("radio2");
+    } else if (data?.info5 === "선택3") {
+      setRadioSelected("radio3");
+    }
+
+    // checkboxStates 업데이트
+    if (data?.info6) {
+      const newCheckboxStates = [false, false, false];
+      data.info6.forEach((item) => {
+        if (item === "선택1") newCheckboxStates[0] = true;
+        else if (item === "선택2") newCheckboxStates[1] = true;
+        else if (item === "선택3") newCheckboxStates[2] = true;
+      });
+      setCheckboxStates(newCheckboxStates);
+    }
+
+    // input text 상태 초기화
+    setInfo2Value(data?.info2 || "");
+    setInfo4Value(data?.info4 || "");
+  }, [data]);
 
   return (
     <>
@@ -39,7 +99,11 @@ function Content() {
 
           <div className="infoBox">
             <p>정보2</p>
-            <input type="text" />
+            <input
+              type="text"
+              value={info2Value}
+              onChange={(e) => setInfo2Value(e.target.value)}
+            />
           </div>
 
           <div className="infoBox">
@@ -49,12 +113,16 @@ function Content() {
 
           <div className="infoBox">
             <p>정보4</p>
-            <input type="text" />
+            <input
+              type="text"
+              value={info4Value}
+              onChange={(e) => setInfo4Value(e.target.value)}
+            />
           </div>
 
           <div className="infoBox">
             <p>날짜</p>
-            <Datepicker />
+            <Datepicker data={data?.date} />
           </div>
 
           <div className="infoBoxRadio">
@@ -106,17 +174,32 @@ function Content() {
           <div className="infoBox">
             <p>정보6</p>
             <div className="checkBox">
-              <input type="checkbox" id="check1" />
+              <input
+                type="checkbox"
+                id="check1"
+                checked={checkboxStates[0]}
+                onChange={() => checkboxHandler(0)}
+              />
               <div className="checkDefault" />
               <label htmlFor="check1">선택1</label>
             </div>
             <div className="checkBox">
-              <input type="checkbox" id="check2" />
+              <input
+                type="checkbox"
+                id="check2"
+                checked={checkboxStates[1]}
+                onChange={() => checkboxHandler(1)}
+              />
               <div className="checkDefault" />
               <label htmlFor="check2">선택2</label>
             </div>
             <div className="checkBox">
-              <input type="checkbox" id="check3" />
+              <input
+                type="checkbox"
+                id="check3"
+                checked={checkboxStates[2]}
+                onChange={() => checkboxHandler(2)}
+              />
               <div className="checkDefault" />
               <label htmlFor="check3">선택3</label>
             </div>
