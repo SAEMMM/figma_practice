@@ -115,7 +115,7 @@ function Content() {
   const checkboxValues = () => {
     return checkboxStates
       .map((checked, index) => (checked ? `선택${index + 1}` : null))
-      .filter((value) => value !== null);
+      .filter((value) => value !== null) as string[]; // string | null이지만, 보낼 때 string[]으로 보내야 하기 때문.
   };
 
   // 저장 mutation
@@ -151,11 +151,8 @@ function Content() {
         info5: radioValue(),
         info6: checkboxValues().filter((value) => value !== null) as string[],
       };
-
       await postMutation.mutateAsync(info);
-    } catch (error) {
-      console.log("전송 실패:", error);
-    }
+    } catch (error) {}
   };
   return (
     <>

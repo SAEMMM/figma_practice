@@ -6,7 +6,6 @@ export const getData = async () => {
     const response = await axios.get("https://api-jobtest.json2bot.chat/test");
     return response.data.data;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };
@@ -26,7 +25,6 @@ export const postData = async (info: {
     );
     return response.data;
   } catch (error) {
-    console.log("info 추가 실패:", error);
     throw error;
   }
 };
