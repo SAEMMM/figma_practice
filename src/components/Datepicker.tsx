@@ -12,9 +12,10 @@ import nextDefaultBtn from "../static/calender_next_default.png";
 // 부모 컴포넌트에서 받아온 getData의 date
 interface DatepickerProps {
   data: string | undefined;
+  handleDateChange: (date: Date | null) => void;
 }
 
-function Datepicker({ data }: DatepickerProps) {
+function Datepicker({ data, handleDateChange }: DatepickerProps) {
   // getData에서 받아온 값을 표준시로 변경
   const getDate = data ? new Date(data) : null;
 
@@ -23,9 +24,10 @@ function Datepicker({ data }: DatepickerProps) {
   // data가 변경될 때마다 startDate 업데이트
   useEffect(() => {
     if (data) {
-      setStartDate(new Date(data));
+      setStartDate(new Date(data))
+      handleDateChange(new Date(data))
     }
-  }, [data]);
+  }, [data, handleDateChange]);
 
   const currentYear = new Date().getFullYear();
   const years = range(1990, currentYear + 1, 1).map((year) => `${year}년`);
@@ -109,7 +111,10 @@ function Datepicker({ data }: DatepickerProps) {
           </div>
         )}
         selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        onChange={(date) => {
+          setStartDate(date);
+          handleDateChange(date);
+        }}
         dateFormat="yyyy.MM.dd"
         locale={ko}
         className="datepickerInput"

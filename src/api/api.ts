@@ -11,4 +11,22 @@ export const getData = async () => {
   }
 };
 
-export default getData;
+// 데이터 보내기
+export const postData = async (info: {
+  info2: string;
+  info4: string;
+  date: string | undefined;
+  info5: string;
+  info6: string[];
+}) => {
+  try {
+    const response = await axios.post(
+      "https://api-jobtest.json2bot.chat/test",
+      info
+    );
+    return response.data;
+  } catch (error) {
+    console.log("info 추가 실패:", error);
+    throw error;
+  }
+};
