@@ -7,7 +7,7 @@
 figma를 참고하여 그대로 구현하는 것이 목적인 프로젝트
 
 ## 📆 개발 기간
-2023년 8월 ~ 8일
+2023년 8월 4일 ~ 8일
 
 ## 🛠 기술 스택
 <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"> 
