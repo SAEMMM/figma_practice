@@ -3,7 +3,7 @@ import axios from "axios";
 // 데이터 불러오기
 export const getData = async () => {
   try {
-    const response = await axios.get("https://api-jobtest.json2bot.chat/test");
+    const response = await axios.get("/test");
     return response.data.data;
   } catch (error) {
     throw error;
@@ -19,10 +19,7 @@ export const postData = async (info: {
   info6: string[];
 }) => {
   try {
-    const response = await axios.post(
-      "https://api-jobtest.json2bot.chat/test",
-      info
-    );
+    const response = await axios.post("/test", info);
     return response.data;
   } catch (error) {
     throw error;

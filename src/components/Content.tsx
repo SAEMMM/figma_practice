@@ -4,6 +4,8 @@ import Datepicker from "./Datepicker";
 
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { getData, postData } from "../api/api";
+import Loading from "./Loading";
+import Error from "./Error";
 
 // getData의 타입
 interface DataInterface {
@@ -37,7 +39,10 @@ interface ErrorResponse {
 
 function Content() {
   // data 불러오기
-  const { data } = useQuery<DataInterface>(["getData"], getData);
+  const { data, isLoading, isError } = useQuery<DataInterface>(
+    ["getData"],
+    getData
+  );
 
   // radio 버튼 상태 관리
   const [radioSelected, setRadioSelected] = useState("");
@@ -154,6 +159,14 @@ function Content() {
       await postMutation.mutateAsync(info);
     } catch (error) {}
   };
+
+  // isLoading, isError시 출력
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (isError) {
+    return <Error />;
+  }
   return (
     <>
       <main id="content">
